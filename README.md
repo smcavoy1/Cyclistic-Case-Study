@@ -156,6 +156,45 @@ CREATE TABLE cyclistic_data.full_year_clean AS 
         
 This new table, full_year_clean, removes 741,120 records, leaving us with 4,171,952.
 
+Now let’s double check to make sure there are no null values. 
+
+```
+SELECT
+    SUM(CASE WHEN ride_id IS NULL THEN 1 ELSE 0 END) AS ride_id_null,
+    SUM(CASE WHEN rideable_type IS NULL THEN 1 ELSE 0 END) AS rideable_type_null,
+    SUM(CASE WHEN started_date IS NULL THEN 1 ELSE 0 END) AS started_date_null,
+    SUM(CASE WHEN started_time IS NULL THEN 1 ELSE 0 END) AS started_time_null,
+    SUM(CASE WHEN start_station_name IS NULL THEN 1 ELSE 0 END) AS start_station_null,
+    SUM(CASE WHEN end_station_name IS NULL THEN 1 ELSE 0 END) AS end_station_null,
+    SUM(CASE WHEN start_lat IS NULL THEN 1 ELSE 0 END) AS start_lat_null,
+    SUM(CASE WHEN start_lng IS NULL THEN 1 ELSE 0 END) AS start_lng_null,
+    SUM(CASE WHEN end_lat IS NULL THEN 1 ELSE 0 END) AS end_lat_null,
+    SUM(CASE WHEN end_lng IS NULL THEN 1 ELSE 0 END) AS end_lng_null,
+    SUM(CASE WHEN member_casual IS NULL THEN 1 ELSE 0 END) AS start_station_null,
+    SUM(CASE WHEN ride_length IS NULL THEN 1 ELSE 0 END) AS ride_length_null,
+    SUM(CASE WHEN month IS NULL THEN 1 ELSE 0 END) AS month_null,
+    SUM(CASE WHEN day_of_week IS NULL THEN 1 ELSE 0 END) AS day_of_week_null,
+FROM  cyclistic_data.full_year_clean
+```
+![Screen Shot 2021-09-24 at 4 46 39 PM](https://user-images.githubusercontent.com/91289713/134737798-1c2c4089-039a-4631-aead-7011ceeff727.png)
+
+No null were values found.
+
+Check the new table for duplicate records.
+
+```
+SELECT ride_id, count (ride_id)
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+GROUP BY ride_id
+HAVING count(ride_id) > 1
+```
+
+This query returned no results, confirming that there are no duplicates in the ride_id column.
+
+
+# Analyze
+
+
 
         
 
