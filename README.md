@@ -23,8 +23,7 @@ The data is reliable and original and has no issues with credibility as it is co
 
 One limitation with the data is not being able to determine which casual riders live outside Chicago and may not be part of the target market for Cyclistic memberships (e.g. tourists). Being able to separate data from casual local riders from that of casual out-of-town riders would provide greater insights into how the segment that we are trying to convert into members uses the service. Another limitation is the inability to separate casual users using single-ride passes from those using full-day passes. 
 
-The data was made available by Motivate International Inc. under this data license agreement https://www.divvybikes.com/data-license-agreement
-
+The data was made available by Motivate International Inc. under this <a href="https://www.divvybikes.com/data-license-agreement">data license agreement</a>.
 
 # Process
 
