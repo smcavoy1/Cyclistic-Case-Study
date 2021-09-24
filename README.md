@@ -15,7 +15,7 @@ I have been assigned the following question: How do annual members and casual ri
 
 # Prepare
 
-The data is available for download at this link https://divvy-tripdata.s3.amazonaws.com/index.html
+The data is available for download <a href="https://divvy-tripdata.s3.amazonaws.com/index.html">at this link</a>. 
 
 The data is organized as ZIP files that extract as CSV. I downloaded data from the 12 most recent months of data, from September 2020 to August 2021. Each CSV file contains data on an individual Cyclistic ride on each row, with 13 columns of data. The size of the dataset is 743 MiB. There are 4,913,072 records in the dataset before data cleaning.
 
