@@ -33,4 +33,31 @@ The tools I used are:
 
 - Tableau for making data visualizations
 
-The first step in the data cleaning process was to combine the 12 monthly CSV files into a single table in SQL
+The first step in the data cleaning process was to combine the 12 monthly CSV files into a single table in SQL.
+
+- Create a table called full_year to combine the 12 monthly datasets
+- Added ride_length column
+- Added columns for month and day_of_week
+- Removed redundant start_station_id and end_station_id columns
+
+```
+CREATE TABLE cyclistic_data.full_year AS
+SELECT *,
+    date_diff(ended_at, started_at, minute) AS ride_length, EXTRACT(MONTH FROM started_at) month,
+EXTRACT(DAYOFWEEK FROM started_at) day_of_week,
+FROM (
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Sep2020` UNION ALL 
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Oct2020` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Nov2020` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Dec2020` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Jan2021` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Feb2021` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Mar2021` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Apr2021` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.May2021` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Jun2021` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Jul2021` UNION ALL
+    SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Aug2021` )
+ ```
+ 
+The size of the dataset is 743 MiB. There are 4,913,072 records in the dataset
