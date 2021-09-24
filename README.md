@@ -29,8 +29,8 @@ The data was made available by Motivate International Inc. under this <a href="h
 
 The tools I used are:
 
-SQL (BigQuery) for cleaning and formatting the data
+- SQL (BigQuery) for cleaning and formatting the data
 
-Tableau for making data visualizations
+- Tableau for making data visualizations
 
 The first step in the data cleaning process was to combine the 12 monthly CSV files into a single table in SQL
