@@ -60,13 +60,13 @@ FROM (
     SELECT * EXCEPT (start_station_id, end_station_id) FROM `cyclistic-case-study-326019.cyclistic_data.Aug2021` )
  ```
  
-The size of the dataset is 743 MiB. There are 4,913,072 records in the dataset
+The size of the dataset is 743 MiB. There are 4,913,072 records in the dataset.
 
 #### Preview Dataset
 
 ![Screen Shot 2021-09-24 at 11 27 43 AM](https://user-images.githubusercontent.com/91289713/134718980-ba55e6ed-9340-44a1-b53e-52d9a48424ff.png)
 
-Then we check for null values
+Then we check for null values.
 
 ```
 SELECT
@@ -88,4 +88,74 @@ FROM cyclistic_data.full_year
 ```
 ![Screen Shot 2021-09-24 at 2 02 26 PM](https://user-images.githubusercontent.com/91289713/134720754-5936e101-9fe1-4679-9242-7a7e520a3b11.png)
 
+Next we check for duplicate data.
+
+```
+SELECT ride_id, count (ride_id)
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year`
+GROUP BY ride_id
+HAVING count(ride_id) > 1
+```
+This shows that there are 209 duplicates in the ride_id field
+
+Let's now check for trips with a ride length of less than 1 minute
+
+```
+SELECT COUNT(ride_length)
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year`
+WHERE ride_length < 1
+```
+
+We find 80,515 records where the ride length is less than one minute. 
+
+Check for trips with a ride length of greater than 24 hours (1440 minutes).
+
+```
+SELECT COUNT(ride_length)
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year`
+WHERE ride_length >1440
+```
+
+This shows 3482 records where the ride length is greater than 24 hours. 
+
+Let’s clean the data by creating a new table that removes duplicate records and rows with null values. I will also remove rides under 1 minute long and rides over 24 hours (1440 minutes), as these outliers do not represent normal usage. We’ll also add columns for starting date and starting time.
+
+```
+CREATE TABLE cyclistic_data.full_year_clean AS 
+    SELECT 
+        ride_id,
+        rideable_type,
+        CAST(started_at AS DATE) started_date, 
+        CAST(started_at AS TIME) started_time,
+        start_station_name,
+        end_station_name,
+	   start_lat,
+        start_lng,
+	   end_lat,
+        end_lng,
+        member_casual,
+        ride_length,
+	   month,
+        day_of_week
+    FROM 
+    (
+        SELECT 
+            *,
+            ROW_NUMBER()
+            OVER (PARTITION BY ride_id) AS row_number 
+        FROM `cyclistic-case-study-326019.cyclistic_data.full_year`  )
+    WHERE 
+        row_number = 1 AND
+        ride_length >= 1 AND
+        ride_length < 1440 AND
+        start_station_name IS NOT NULL AND 
+        end_station_name IS NOT NULL AND
+        end_lat IS NOT NULL AND 
+        end_lng IS NOT NULL
+```
+        
+This new table, full_year_clean, removes 741,120 records, leaving us with 4,171,952.
+
+
+        
 
