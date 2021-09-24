@@ -61,3 +61,31 @@ FROM (
  ```
  
 The size of the dataset is 743 MiB. There are 4,913,072 records in the dataset
+
+#### Preview Dataset
+
+![Screen Shot 2021-09-24 at 11 27 43 AM](https://user-images.githubusercontent.com/91289713/134718980-ba55e6ed-9340-44a1-b53e-52d9a48424ff.png)
+
+Then we check for null values
+
+```
+SELECT
+    SUM(CASE WHEN ride_id IS NULL THEN 1 ELSE 0 END) AS ride_id_null,
+    SUM(CASE WHEN rideable_type IS NULL THEN 1 ELSE 0 END) AS rideable_type_null,
+    SUM(CASE WHEN started_at IS NULL THEN 1 ELSE 0 END) AS started_at_null,
+    SUM(CASE WHEN ended_at IS NULL THEN 1 ELSE 0 END) AS ended_at_null,
+    SUM(CASE WHEN start_station_name IS NULL THEN 1 ELSE 0 END) AS start_station_null,
+    SUM(CASE WHEN end_station_name IS NULL THEN 1 ELSE 0 END) AS end_station_null,
+    SUM(CASE WHEN start_lat IS NULL THEN 1 ELSE 0 END) AS start_lat_null, 
+    SUM(CASE WHEN start_lng IS NULL THEN 1 ELSE 0 END) AS start_lng_null, 
+    SUM(CASE WHEN end_lat IS NULL THEN 1 ELSE 0 END) AS end_lat_null, 
+    SUM(CASE WHEN end_lng IS NULL THEN 1 ELSE 0 END) AS end_lng_null, 
+    SUM(CASE WHEN member_casual IS NULL THEN 1 ELSE 0 END) AS member_casual_null, 
+    SUM(CASE WHEN ride_length IS NULL THEN 1 ELSE 0 END) AS ride_length_null, 
+    SUM(CASE WHEN month IS NULL THEN 1 ELSE 0 END) AS month_null, 
+    SUM(CASE WHEN day_of_week IS NULL THEN 1 ELSE 0 END) AS day_of_week_null
+FROM cyclistic_data.full_year
+```
+![Screen Shot 2021-09-24 at 2 02 26 PM](https://user-images.githubusercontent.com/91289713/134720754-5936e101-9fe1-4679-9242-7a7e520a3b11.png)
+
+
