@@ -86,6 +86,8 @@ SELECT
     SUM(CASE WHEN day_of_week IS NULL THEN 1 ELSE 0 END) AS day_of_week_null
 FROM cyclistic_data.full_year
 ```
+Result
+
 ![Screen Shot 2021-09-24 at 2 02 26 PM](https://user-images.githubusercontent.com/91289713/134720754-5936e101-9fe1-4679-9242-7a7e520a3b11.png)
 
 Next we check for duplicate data.
@@ -176,6 +178,8 @@ SELECT
     SUM(CASE WHEN day_of_week IS NULL THEN 1 ELSE 0 END) AS day_of_week_null,
 FROM  cyclistic_data.full_year_clean
 ```
+Result
+
 ![Screen Shot 2021-09-24 at 4 46 39 PM](https://user-images.githubusercontent.com/91289713/134737798-1c2c4089-039a-4631-aead-7011ceeff727.png)
 
 No null were values found.
@@ -193,6 +197,24 @@ This query returned no results, confirming that there are no duplicates in the r
 
 
 # Analyze
+
+Find the total rides, ride percentage, and average ride length for members and casual riders.
+
+```
+SELECT member_casual,
+    COUNT(ride_id) AS total_rides, 
+    ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER (), 2) AS percentage,
+    ROUND(AVG(ride_length),2) AS avg_ride_length
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+GROUP BY member_casual
+```
+Result
+
+![Screen Shot 2021-09-25 at 10 54 05 AM](https://user-images.githubusercontent.com/91289713/134775800-516431a4-1366-4e45-a8b2-3438124479cb.png)
+
+<div class='tableauPlaceholder' id='viz1632582888526' style='position: relative'><noscript><a href='#'><img alt='Sheet 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AvgRideLengthminutes&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AvgRideLengthminutes&#47;Sheet2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AvgRideLengthminutes&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1632582888526');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
 
 
 
