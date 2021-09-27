@@ -262,3 +262,43 @@ Result
 
 <div class='tableauPlaceholder' id='viz1632757278118' style='position: relative'><noscript><a href='#'><img alt='Total Rides &amp; Avg Ride Length by Weekday&#47;Weekend ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalRidesAvgRideLengthbyWeekdayWeekend&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TotalRidesAvgRideLengthbyWeekdayWeekend&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalRidesAvgRideLengthbyWeekdayWeekend&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
 
+
+Find the most popular starting hours for members
+
+```
+SELECT member_casual,
+EXTRACT(HOUR FROM started_time) AS start_hour,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'member'
+GROUP BY member_casual, start_hour
+ORDER BY num_of_rides DESC 
+```
+
+Result 
+
+![Screen Shot 2021-09-27 at 1 50 33 PM](https://user-images.githubusercontent.com/91289713/134959868-73908f0f-0586-4809-99c3-e1990dcdceaf.png)
+
+
+Find the most popular starting hours for casual riders
+
+```
+SELECT member_casual,
+EXTRACT(HOUR FROM started_time) AS start_hour,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'casual'
+GROUP BY member_casual, start_hour
+ORDER BY num_of_rides DESC 
+```
+
+Result
+
+![Screen Shot 2021-09-27 at 1 55 55 PM](https://user-images.githubusercontent.com/91289713/134960350-6e83dd6f-a23c-43c4-bea5-463f88209d2f.png)
+
+
+
+
+
