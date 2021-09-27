@@ -233,10 +233,33 @@ Result
 
 ![Screen Shot 2021-09-25 at 11 35 46 AM](https://user-images.githubusercontent.com/91289713/134777134-c5676eac-a5fd-4233-b0d9-3897bcbc2d62.png)
 
+<div class='tableauPlaceholder' id='viz1632754144248' style='position: relative'><noscript><a href='#'><img alt='Rides by Day of the Week ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RidesbyDayoftheWeek&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='RidesbyDayoftheWeek&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RidesbyDayoftheWeek&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
 
 
+<div class='tableauPlaceholder' id='viz1632754883557' style='position: relative'><noscript><a href='#'><img alt='Average Ride Length by Day of the Week ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AverageRideLengthbyDayoftheWeek&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AverageRideLengthbyDayoftheWeek&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AverageRideLengthbyDayoftheWeek&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
 
 
+We can view total rides and average ride length by weekday and weekend.
 
-        
+```
+SELECT member_casual,
+    CASE WHEN day_of_week BETWEEN 2 AND 6 THEN "weekday" ELSE "weekend" END day_type,
+    COUNT(ride_id) AS total_rides, 
+    ROUND(AVG(ride_length),2) AS avg_ride_length,
+     ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER 
+			 		(PARTITION BY member_casual),2) 
+					           AS percentage_type,
+	   ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER (), 2)
+	   				           AS percentage_total
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+GROUP BY member_casual, day_type
+ORDER BY member_casual, day_type
+```
+
+Result 
+
+![Screen Shot 2021-09-27 at 11 03 19 AM](https://user-images.githubusercontent.com/91289713/134934677-0e77f03d-d257-42ec-aa06-5be43123e858.png)
+
+
+<div class='tableauPlaceholder' id='viz1632757278118' style='position: relative'><noscript><a href='#'><img alt='Total Rides &amp; Avg Ride Length by Weekday&#47;Weekend ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalRidesAvgRideLengthbyWeekdayWeekend&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TotalRidesAvgRideLengthbyWeekdayWeekend&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalRidesAvgRideLengthbyWeekdayWeekend&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
 
