@@ -357,7 +357,7 @@ ROUND(AVG(ride_length),2) AS avg_ride_length,
 FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
 GROUP BY member_casual, rideable_type
 ORDER BY member_casual, num_of_rides DESC 
-``
+```
 
 Result
 
