@@ -437,3 +437,39 @@ LIMIT 50
 
 
 <div class='tableauPlaceholder' id='viz1632855925353' style='position: relative'><noscript><a href='#'><img alt='Top 50 Starting Stations for Casual Riders ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top50StartingStationsforCasualRiders&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Top50StartingStationsforCasualRiders&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top50StartingStationsforCasualRiders&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
+
+Let's look at the top ending stations for members.
+
+```
+SELECT end_station_name,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length,
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'member'
+GROUP BY end_station_name
+ORDER BY num_of_rides DESC 
+```
+
+Result
+
+![Screen Shot 2021-09-28 at 3 54 28 PM](https://user-images.githubusercontent.com/91289713/135156625-c6bbae3a-5e7d-47f4-83a0-374a96ce5fa6.png)
+
+As it turns out, the top starting stations and ending stations for members are largely the same.
+
+Let's check ending stations for casual riders. 
+
+```
+SELECT end_station_name,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length,
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'casual'
+GROUP BY end_station_name
+ORDER BY num_of_rides DESC 
+```
+
+Result
+
+![Screen Shot 2021-09-28 at 4 00 06 PM](https://user-images.githubusercontent.com/91289713/135157347-e8fc5392-0075-4b06-bf6e-08327c55a3af.png)
+
+
