@@ -345,4 +345,23 @@ Result
 ![Screen Shot 2021-09-28 at 11 16 51 AM](https://user-images.githubusercontent.com/91289713/135116003-c676cc99-8e77-41a0-8716-be0bbf55607f.png)
 
 
-<div class='tableauPlaceholder' id='viz1632843095975' style='position: relative'><noscript><a href='#'><img alt='Rides and Average Ride Length by Season ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RidesandAverageRideLengthbySeason&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='RidesandAverageRideLengthbySeason&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RidesandAverageRideLengthbySeason&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
+<div class='tableauPlaceholder' id='viz1632843095975' style='position: relative'><noscript><a href='#'><img alt='Rides and Average Ride Length by Season ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RidesandAverageRideLengthbySeason&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='RidesandAverageRideLengthbySeason&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ri&#47;RidesandAverageRideLengthbySeason&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>    
+
+Let's look at bike selection for members and casual riders.
+
+```
+SELECT member_casual,
+rideable_type,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length,
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+GROUP BY member_casual, rideable_type
+ORDER BY member_casual, num_of_rides DESC 
+``
+
+Result
+
+![Screen Shot 2021-09-28 at 11 40 05 AM](https://user-images.githubusercontent.com/91289713/135120003-27ec1fd7-9bdd-4611-865b-41d77133ddc0.png)
+
+
+
