@@ -353,7 +353,10 @@ Let's look at bike selection for members and casual riders.
 SELECT member_casual,
 rideable_type,
 COUNT(*) num_of_rides,
-ROUND(AVG(ride_length),2) AS avg_ride_length,
+ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER 
+	(PARTITION BY member_casual),2) AS percentage_type,
+ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER (), 2)AS percentage_total,
+ROUND(AVG(ride_length),2) AS avg_ride_length
 FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
 GROUP BY member_casual, rideable_type
 ORDER BY member_casual, num_of_rides DESC 
@@ -361,7 +364,9 @@ ORDER BY member_casual, num_of_rides DESC
 
 Result
 
-![Screen Shot 2021-09-28 at 11 40 05 AM](https://user-images.githubusercontent.com/91289713/135120003-27ec1fd7-9bdd-4611-865b-41d77133ddc0.png)
+![Screen Shot 2021-09-28 at 11 56 47 AM](https://user-images.githubusercontent.com/91289713/135122891-44d61924-5cac-49ee-8420-665de84003bb.png)
+
+
 
 
 
