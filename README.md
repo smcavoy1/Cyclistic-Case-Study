@@ -405,6 +405,34 @@ Result
 
 We can use the start_lat & start_lng columns to create maps in Tableau showing the most popular starting stations for both members and casual riders.
 
+The following SQL query gives us a list of the top 50 starting stations for members grouped by start_lat and start_lng
+
+```
+SELECT start_lat,
+start_lng,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length,
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'member'
+GROUP BY start_lat, start_lng
+ORDER BY num_of_rides DESC 
+LIMIT 50
+```
+
+We can tweak the query slightly to get a list of the top 50 starting stations for casual riders.
+
+```
+SELECT start_lat,
+start_lng,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length,
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'casual'
+GROUP BY start_lat, start_lng
+ORDER BY num_of_rides DESC 
+LIMIT 50
+```
+
 <div class='tableauPlaceholder' id='viz1632856109214' style='position: relative'><noscript><a href='#'><img alt='Top 50 Starting Stations for Members ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top50StartingStationsforMembers&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Top50StartingStationsforMembers&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top50StartingStationsforMembers&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
 
 
