@@ -367,3 +367,39 @@ Result
 ![Screen Shot 2021-09-28 at 11 56 47 AM](https://user-images.githubusercontent.com/91289713/135122891-44d61924-5cac-49ee-8420-665de84003bb.png)
 
 <div class='tableauPlaceholder' id='viz1632850627747' style='position: relative'><noscript><a href='#'><img alt='Bike Type for Members &amp; Casual Riders ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bi&#47;BikeTypeforMembersCasualRiders&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BikeTypeforMembersCasualRiders&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bi&#47;BikeTypeforMembersCasualRiders&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
+
+
+Now we'll run a queries to find the top start stations for members and casual riders. 
+
+For members: 
+
+```
+SELECT start_station_name,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length,
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'member'
+GROUP BY start_station_name
+ORDER BY num_of_rides DESC 
+```
+
+Result
+
+![Screen Shot 2021-09-28 at 1 41 28 PM](https://user-images.githubusercontent.com/91289713/135138283-d282a1e0-017c-42c7-8765-382936f9997d.png)
+
+For casual riders:
+
+```
+SELECT start_station_name,
+COUNT(*) num_of_rides,
+ROUND(AVG(ride_length),2) AS avg_ride_length,
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+WHERE member_casual = 'casual'
+GROUP BY start_station_name
+ORDER BY num_of_rides DESC 
+```
+
+Result
+
+![Screen Shot 2021-09-28 at 1 44 07 PM](https://user-images.githubusercontent.com/91289713/135138642-11081ffd-a420-43b1-a6f4-e2f61e375f49.png)
+
