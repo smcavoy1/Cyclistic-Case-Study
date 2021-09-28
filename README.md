@@ -472,4 +472,32 @@ Result
 
 ![Screen Shot 2021-09-28 at 4 00 06 PM](https://user-images.githubusercontent.com/91289713/135157347-e8fc5392-0075-4b06-bf6e-08327c55a3af.png)
 
+Again, it's similar to the list of popular starting stations.
+
+We can run a SQL query to calculate one-way and round-trip rides for members and casual riders. When a bike is returned to the same station where the ride was initiated, we will cousider it a round-trip. When a bike is retured to a different station, then it is a one-way trip.
+
+```
+SELECT member_casual,
+	   CASE WHEN start_station_name = end_station_name 
+	   		THEN 'round'
+	   		ELSE 'one way'
+			END AS trip_type,
+	   COUNT(*) AS rides,
+	   ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER 
+			 		(PARTITION BY member_casual),2) 
+					           AS percentage_type,
+	   ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER (), 2)
+	   				           AS percentage_total
+FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
+GROUP BY member_casual, trip_type
+ORDER BY member_casual, trip_type
+```
+
+Result
+
+![Screen Shot 2021-09-28 at 4 08 33 PM](https://user-images.githubusercontent.com/91289713/135158313-e3690f9e-d0f2-48cb-8fff-effef9c3d732.png)
+
+<div class='tableauPlaceholder' id='viz1632860162455' style='position: relative'><noscript><a href='#'><img alt='One-Way vs Round Trips ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;One-WayvsRoundTrips&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='One-WayvsRoundTrips&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;One-WayvsRoundTrips&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
+
+There are relatively few round trips made, however casual riders are 349% more likely than members to complete a round trip.
 
