@@ -180,7 +180,8 @@ FROM  cyclistic_data.full_year_clean
 ```
 Result
 
-![Screen Shot 2021-09-24 at 4 46 39 PM](https://user-images.githubusercontent.com/91289713/134737798-1c2c4089-039a-4631-aead-7011ceeff727.png)
+![Screen Shot 2021-09-29 at 11 00 59 AM](https://user-images.githubusercontent.com/91289713/135295561-7a07b377-0f29-4bf8-b7f2-ec363fdee68c.png)
+
 
 No null were values found.
 
@@ -198,7 +199,8 @@ This query returned no results, confirming that there are no duplicates in the r
 
 # Analyze
 
-Find the total rides, ride percentage, and average ride length for members and casual riders.
+Let's start the analysis by finding total rides, ride percentage, and average ride length for members and casual riders. 
+
 
 ```
 SELECT member_casual,
@@ -210,13 +212,14 @@ GROUP BY member_casual
 ```
 Result
 
+
 ![Screen Shot 2021-09-25 at 10 54 05 AM](https://user-images.githubusercontent.com/91289713/134775800-516431a4-1366-4e45-a8b2-3438124479cb.png)
 
                
+<br>
 
 
-
-Total rides and average ride length by day of the week.
+Since ride patterns can vary by the day of the week, let's look at the total rides and average ride length by day of the week.
 
 ```
 SELECT member_casual,
@@ -230,12 +233,16 @@ ORDER BY day_of_week, member_casual
 
 Result
 
-![Screen Shot 2021-09-25 at 11 35 46 AM](https://user-images.githubusercontent.com/91289713/134777134-c5676eac-a5fd-4233-b0d9-3897bcbc2d62.png)
 
-             
+![Screen Shot 2021-09-29 at 11 10 54 AM](https://user-images.githubusercontent.com/91289713/135297457-e90b074c-a11b-4eb2-9574-9f173128f1f7.png)
+
+day_of_week 1 = Sunday, day_of_week 7 = Saturday
 
 
-We can view total rides and average ride length by weekday and weekend.
+<br>          
+
+
+We can also break this down by weekday and weekend.
 
 ```
 SELECT member_casual,
@@ -257,7 +264,7 @@ Result
 ![Screen Shot 2021-09-27 at 11 03 19 AM](https://user-images.githubusercontent.com/91289713/134934677-0e77f03d-d257-42ec-aa06-5be43123e858.png)
 
 
-              
+<br>           
 
 
 Find the most popular starting hours for members
