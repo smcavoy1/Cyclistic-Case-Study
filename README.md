@@ -406,7 +406,9 @@ ORDER BY num_of_rides DESC
 
 Result
 
-![Screen Shot 2021-09-28 at 1 41 28 PM](https://user-images.githubusercontent.com/91289713/135138283-d282a1e0-017c-42c7-8765-382936f9997d.png)
+![Screen Shot 2021-09-29 at 2 27 33 PM](https://user-images.githubusercontent.com/91289713/135327566-3010b040-2d78-409e-941f-ed772ac61272.png)
+
+<br>
 
 For casual riders:
 
@@ -422,7 +424,11 @@ ORDER BY num_of_rides DESC
 
 Result
 
-![Screen Shot 2021-09-28 at 1 44 07 PM](https://user-images.githubusercontent.com/91289713/135138642-11081ffd-a420-43b1-a6f4-e2f61e375f49.png)
+![Screen Shot 2021-09-29 at 2 36 26 PM](https://user-images.githubusercontent.com/91289713/135328739-9715c860-3729-4747-ab22-c88fd3ba932c.png)
+
+
+<br>
+
 
 We can use the start_lat & start_lng columns to create maps in Tableau showing the most popular starting stations for both members and casual riders.
 
