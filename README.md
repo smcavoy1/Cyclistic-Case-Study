@@ -305,10 +305,11 @@ Result
 
 ![Screen Shot 2021-09-27 at 1 50 33 PM](https://user-images.githubusercontent.com/91289713/134959868-73908f0f-0586-4809-99c3-e1990dcdceaf.png)
 
+<br>   
+
 
 Find the most popular starting hours for casual riders
 
-<br>   
 
 ```
 SELECT member_casual,
