@@ -432,7 +432,7 @@ Result
 
 We can use the start_lat & start_lng columns to create maps in Tableau showing the most popular starting stations for both members and casual riders.
 
-The following SQL query gives us a list of the top 50 starting stations for members grouped by start_lat and start_lng
+The following SQL query gives us a list of the top 30 starting stations for members grouped by start_lat and start_lng
 
 ```
 SELECT start_lat,
@@ -443,10 +443,10 @@ FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
 WHERE member_casual = 'member'
 GROUP BY start_lat, start_lng
 ORDER BY num_of_rides DESC 
-LIMIT 50
+LIMIT 30
 ```
 
-We can tweak the query slightly to get a list of the top 50 starting stations for casual riders.
+We can tweak the query slightly to get a list of the top 30 starting stations for casual riders.
 
 ```
 SELECT start_lat,
@@ -457,9 +457,10 @@ FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
 WHERE member_casual = 'casual'
 GROUP BY start_lat, start_lng
 ORDER BY num_of_rides DESC 
-LIMIT 50
+LIMIT 30
 ```
 
+<br>
              
 
 Let's look at the top ending stations for members.
@@ -476,11 +477,14 @@ ORDER BY num_of_rides DESC
 
 Result
 
-![Screen Shot 2021-09-28 at 3 54 28 PM](https://user-images.githubusercontent.com/91289713/135156625-c6bbae3a-5e7d-47f4-83a0-374a96ce5fa6.png)
+![Screen Shot 2021-09-29 at 3 46 33 PM](https://user-images.githubusercontent.com/91289713/135338186-30228cfa-9c75-4d17-a5b5-3aea0b416767.png)
 
-As it turns out, the top starting stations and ending stations for members are largely the same.
 
-Let's check ending stations for casual riders. 
+As it turns out, the top starting stations and ending stations for members are largely the same. 27 of 30 stations on the top starting stations for members list is also on the list of the top 30 ending stations for members.
+
+<br>
+
+Let's check popular ending stations for casual riders. 
 
 ```
 SELECT end_station_name,
@@ -494,9 +498,12 @@ ORDER BY num_of_rides DESC
 
 Result
 
-![Screen Shot 2021-09-28 at 4 00 06 PM](https://user-images.githubusercontent.com/91289713/135157347-e8fc5392-0075-4b06-bf6e-08327c55a3af.png)
+![Screen Shot 2021-09-29 at 3 55 30 PM](https://user-images.githubusercontent.com/91289713/135339344-75d90139-72ab-43fe-9c10-2eb156ab0c8e.png)
 
-Again, it's similar to the list of popular starting stations.
+
+Again, it's similar to the list of popular starting stations. 28 of 30 stations are found on both lists.
+
+<br>
 
 We can run a SQL query to calculate one-way and round-trip rides for members and casual riders. When a bike is returned to the same station where the ride was initiated, we will cousider it a round-trip. When a bike is retured to a different station, then it is a one-way trip.
 
