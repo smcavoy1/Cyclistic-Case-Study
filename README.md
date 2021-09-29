@@ -40,6 +40,8 @@ The first step in the data cleaning process was to combine the 12 monthly CSV fi
 - Added columns for month and day_of_week
 - Removed redundant start_station_id and end_station_id columns
 
+<br>
+
 ```
 CREATE TABLE cyclistic_data.full_year AS
 SELECT *,
@@ -62,11 +64,17 @@ FROM (
  
 The size of the dataset is 743 MiB. There are 4,913,072 records in the dataset.
 
-#### Preview Dataset
+<br>
+
+Preview Dataset
 
 ![Screen Shot 2021-09-24 at 11 27 43 AM](https://user-images.githubusercontent.com/91289713/134718980-ba55e6ed-9340-44a1-b53e-52d9a48424ff.png)
 
+<br>
+
 Then we check for null values.
+
+<br>
 
 ```
 SELECT
@@ -90,6 +98,8 @@ Result
 
 ![Screen Shot 2021-09-24 at 2 02 26 PM](https://user-images.githubusercontent.com/91289713/134720754-5936e101-9fe1-4679-9242-7a7e520a3b11.png)
 
+<br>
+
 Next we check for duplicate data.
 
 ```
@@ -98,7 +108,10 @@ FROM `cyclistic-case-study-326019.cyclistic_data.full_year`
 GROUP BY ride_id
 HAVING count(ride_id) > 1
 ```
+
 This shows that there are 209 duplicates in the ride_id field
+
+<br>
 
 Let's now check for trips with a ride length of less than 1 minute
 
@@ -110,6 +123,8 @@ WHERE ride_length < 1
 
 We find 80,515 records where the ride length is less than one minute. 
 
+<br>
+
 Check for trips with a ride length of greater than 24 hours (1440 minutes).
 
 ```
@@ -120,7 +135,9 @@ WHERE ride_length >1440
 
 This shows 3482 records where the ride length is greater than 24 hours. 
 
-Let’s clean the data by creating a new table that removes duplicate records and rows with null values. I will also remove rides under 1 minute long and rides over 24 hours (1440 minutes), as these outliers do not represent normal usage. We’ll also add columns for starting date and starting time.
+<br>
+
+Let’s clean the data by creating a new table that removes duplicate records and rows with null values. I will also remove rides under 1 minute long and rides over 24 hours (1440 minutes), as these outliers do not represent typical usage. We’ll also add columns for starting date and starting time.
 
 ```
 CREATE TABLE cyclistic_data.full_year_clean AS 
@@ -158,6 +175,8 @@ CREATE TABLE cyclistic_data.full_year_clean AS 
         
 This new table, full_year_clean, removes 741,120 records, leaving us with 4,171,952.
 
+<br>
+
 Now let’s double check to make sure there are no null values. 
 
 ```
@@ -182,8 +201,9 @@ Result
 
 ![Screen Shot 2021-09-29 at 11 00 59 AM](https://user-images.githubusercontent.com/91289713/135295561-7a07b377-0f29-4bf8-b7f2-ec363fdee68c.png)
 
-
 No null were values found.
+
+<br>
 
 Check the new table for duplicate records.
 
@@ -215,7 +235,8 @@ Result
 
 ![Screen Shot 2021-09-25 at 10 54 05 AM](https://user-images.githubusercontent.com/91289713/134775800-516431a4-1366-4e45-a8b2-3438124479cb.png)
 
-               
+We can see that the average ride length for casual riders is nearly 30 minutes. This is more than twice the average ride length for members.
+ 
 <br>
 
 
@@ -236,13 +257,13 @@ Result
 
 ![Screen Shot 2021-09-29 at 11 10 54 AM](https://user-images.githubusercontent.com/91289713/135297457-e90b074c-a11b-4eb2-9574-9f173128f1f7.png)
 
-day_of_week 1 = Sunday, day_of_week 7 = Saturday
+For the day_of_week column, 1 = Sunday, 7 = Saturday
 
 
 <br>          
 
 
-We can also break this down by weekday and weekend.
+We can also break this down by weekday and weekend. We'll include percentage columns to make analysis easier.
 
 ```
 SELECT member_casual,
@@ -287,6 +308,8 @@ Result
 
 Find the most popular starting hours for casual riders
 
+<br>   
+
 ```
 SELECT member_casual,
 EXTRACT(HOUR FROM started_time) AS start_hour,
@@ -303,7 +326,7 @@ Result
 ![Screen Shot 2021-09-27 at 1 55 55 PM](https://user-images.githubusercontent.com/91289713/134960350-6e83dd6f-a23c-43c4-bea5-463f88209d2f.png)
 
 
-             
+<br>                
 
 Now we'll look at the number of rides and average ride length by month for members and casual riders.
 
@@ -320,7 +343,7 @@ Result
 
 ![Screen Shot 2021-09-28 at 10 04 02 AM](https://user-images.githubusercontent.com/91289713/135102896-516c5694-1bfd-42c3-84eb-c3655cd2907c.png)
 
-
+<br>
 
 We can also break rides down by meteorological season to better view the seasonal effects.
 
@@ -341,7 +364,7 @@ Result
 ![Screen Shot 2021-09-28 at 11 16 51 AM](https://user-images.githubusercontent.com/91289713/135116003-c676cc99-8e77-41a0-8716-be0bbf55607f.png)
 
 
-  
+<br>  
 
 Let's look at bike selection for members and casual riders.
 
@@ -363,8 +386,10 @@ Result
 ![Screen Shot 2021-09-28 at 11 56 47 AM](https://user-images.githubusercontent.com/91289713/135122891-44d61924-5cac-49ee-8420-665de84003bb.png)
 
 
+<br>
 
-Now we'll run a queries to find the top start stations for members and casual riders. 
+
+Now we'll run queries to find the top starting stations for members and casual riders. 
 
 For members: 
 
