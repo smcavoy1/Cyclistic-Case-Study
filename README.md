@@ -598,17 +598,21 @@ Weekend patterns are similar between members and casual riders, with highest usa
 
 Cyclistic service is highly seasonal, with total ridership highest in the summer months and lowest in the winter. Summer is the only season in which rides by casual riders exceeds those of members. Total ridership drops 87% between summer and fall, and an additional 440% between fall and winter. Rides taken by casual riders drops off 855% between fall and winter, while rides taken by members falls 336%. 
 
-Not surprisingly, winter in Chicago is not a popular time for bicycling for pleasure. While rides taken by casual riders drops to low levels during the winter months, this group of riders is likely using the service for commuting purposes and may be relatively receptive to membership appeals.
+Unsurprisingly, winter in Chicago is not a popular time for bicycling for pleasure. While rides taken by casual riders drops to low levels during the winter months, this group of riders is likely using the service for commuting purposes and may be relatively receptive to membership appeals.
 
 <br>
 
 <div class='tableauPlaceholder' id='viz1632850627747' style='position: relative'><noscript><a href='#'><img alt='Bike Type for Members &amp; Casual Riders ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bi&#47;BikeTypeforMembersCasualRiders&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BikeTypeforMembersCasualRiders&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bi&#47;BikeTypeforMembersCasualRiders&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div> 
 
+<br>
+The classic bike is the most popular bike for members and casual riders. Casual riders are more likely to choose one of the alternative selections as 51% choose a docked or electric bike, vs 42% of members. 
+<br>
+
 <div class='tableauPlaceholder' id='viz1632860162455' style='position: relative'><noscript><a href='#'><img alt='One-Way vs Round Trips ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;One-WayvsRoundTrips&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='One-WayvsRoundTrips&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;One-WayvsRoundTrips&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div> 
 
+<br>
 There are relatively few round trips made, however casual riders are 349% more likely than members to complete a round trip.
-
-
+<br>
 
 <div class='tableauPlaceholder' id='viz1632856109214' style='position: relative'><noscript><a href='#'><img alt='Top 50 Starting Stations for Members ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top50StartingStationsforMembers&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Top50StartingStationsforMembers&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top50StartingStationsforMembers&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
 
