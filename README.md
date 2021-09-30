@@ -582,7 +582,7 @@ Casual riders are more likely to use Cyclistic on weekends, with 42.4% of rides 
 
 <br>
 
-We see a distinct
+We see a distinct uptick in rides among members on weekday mornings betweeen 5am and 9am, and another spike in late afternoon between 3pm and 6pm. This suggests that many members use Cyclistic service for commuting to work. Usage by casual riders increases more gradually throughout the day, reaching a peak in the 5pm hour. Weekend patterns are similar between members and casual riders, with highest usage in the afternoons, but with no usage spikes.
 
 <br>
 
