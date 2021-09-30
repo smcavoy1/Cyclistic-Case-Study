@@ -433,7 +433,7 @@ Let's take a closer look at the 15 stations that are unique to the casual riders
 
 ![Screen Shot 2021-09-29 at 4 22 18 PM](https://user-images.githubusercontent.com/91289713/135343252-31548f8d-b22c-4fe9-bf5d-e1de4ad5ebc8.png)
 
-We find a number of stations that are located at tourist locations in Chicago: Millennium Park, Shedd Aquarium, Dusable Harbor, Buckingham Fountain, and Montrose Harbor. This suggests that many casual riders are using Cyclistic bikes for recreational use.
+We find a number of stations that are located at tourist locations in Chicago: Millennium Park, Lake Shore Drive & Monroe Street, Shedd Aquarium, Dusable Harbor, Buckingham Fountain, and Montrose Harbor. This suggests that many casual riders are using Cyclistic bikes for recreational use.
 
 
 
@@ -510,36 +510,44 @@ Result
 
 We can use the start_lat & start_lng columns to create maps in Tableau showing the most popular starting stations for both members and casual riders.
 
-The following SQL query gives us a list of the top 30 starting stations for members grouped by start_lat and start_lng
-
+The following SQL query gives us a list of the top 30 starting stations for members and includes columns for latitude and longitude.
 ```
-SELECT start_lat,
-start_lng,
-COUNT(*) num_of_rides,
-ROUND(AVG(ride_length),2) AS avg_ride_length,
+SELECT 
+start_station_name,
+COUNT(*) AS rides,		
+AVG(start_lat) AS lat,
+AVG(start_lng) AS lng
 FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
-WHERE member_casual = 'member'
-GROUP BY start_lat, start_lng
-ORDER BY num_of_rides DESC 
+WHERE member_casual = 'member' 
+GROUP BY start_station_name
+ORDER BY rides DESC 
 LIMIT 30
 ```
+
+![Screen Shot 2021-09-30 at 11 20 18 AM](https://user-images.githubusercontent.com/91289713/135484110-106f133f-6e92-4143-b830-a4936fd8ed59.png)
+
+
+<br>
 
 We can tweak the query slightly to get a list of the top 30 starting stations for casual riders.
 
 ```
-SELECT start_lat,
-start_lng,
-COUNT(*) num_of_rides,
-ROUND(AVG(ride_length),2) AS avg_ride_length,
+SELECT 
+start_station_name,
+COUNT(*) AS rides,		
+AVG(start_lat) AS lat,
+AVG(start_lng) AS lng
 FROM `cyclistic-case-study-326019.cyclistic_data.full_year_clean`
-WHERE member_casual = 'casual'
-GROUP BY start_lat, start_lng
-ORDER BY num_of_rides DESC 
+WHERE member_casual = 'casual' 
+GROUP BY start_station_name
+ORDER BY rides DESC 
 LIMIT 30
 ```
 
+![Screen Shot 2021-09-30 at 11 14 47 AM](https://user-images.githubusercontent.com/91289713/135482983-41e6d7cd-0652-4717-bb54-2353b950949d.png)
 
-               
+
+<br>
 
 # Share
 
