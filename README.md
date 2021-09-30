@@ -621,7 +621,12 @@ There are relatively few round trips made, however casual riders are 349% more l
 
 <br>
 
+The maps above show the top 30 starting stations for members and casual riders. The top 5 station names are annotated. 
 
+As we can see, the top stations for members are mostly clustered around the Near North Side area, north of the Chicago River. This is the most densely populated community area of the city. The top stations for casual riders are split between the Near North Side and The Loop. The Loop is the area directly south of the Chicago River and is home to popular landmarks and tourist attractions. On this map we find a number of stations that are located at tourist locations in the city, including Millennium Park, Shedd Aquarium, Dusable Harbor, Buckingham Fountain, and Montrose Harbor. 
 
+These maps support the idea that a large proportion of casual riders are tourists or local residents who are using the service for recreational purposes.
 
+<br>
 
+# Act
