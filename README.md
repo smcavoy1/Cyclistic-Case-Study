@@ -21,7 +21,7 @@ The data is organized as ZIP files that extract as CSV. I downloaded data from t
 
 The data is reliable and original and has no issues with credibility as it is collected directly from a first-person source, Motivate International Inc. The dataset provides anonymized information on starting and ending times and stations, along with information on the type of bike used. This data is adequate for uncovering broad patterns, however the lack of a user id makes it impossible to analyze individual user profiles. 
 
-One limitation with the data is not being able to determine which casual riders live outside Chicago and may not be part of the target market for Cyclistic memberships (e.g. tourists). Being able to separate data from casual local riders from that of casual out-of-town riders would provide greater insights into how the segment that we are trying to convert into members uses the service. Another limitation is the inability to separate casual users using single-ride passes from those using full-day passes. 
+One limitation with the data is not being able to determine which casual riders live outside Chicago and may not be part of the target market for Cyclistic memberships (e.g. tourists). Being able to separate data from casual local riders from that of casual out-of-town riders would provide greater insights into how each segment uses the service. Another limitation is the inability to separate casual users using single-ride passes from those using full-day passes. 
 
 The data was made available by Motivate International Inc. under this <a href="https://www.divvybikes.com/data-license-agreement">data license agreement</a>.
 
@@ -630,3 +630,5 @@ These maps support the idea that a large proportion of casual riders are tourist
 <br>
 
 # Act
+
+- Marketing campaigns should target casual riders who use Cyclistic primarily for commuting to work. Casual riders with ride profiles similar to those of members will likely be the most receptive to membership appeals. This means targeting casual riders who use the service on weekdays, particularly during the morning and afternoon “rush hours”, casual riders who use stations Downtown that are popular with members, casual riders with shorter than average ride times, and casual riders who use the service in wintertime or on days with bad weather. 
