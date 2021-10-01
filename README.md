@@ -633,7 +633,7 @@ These maps support the idea that a large proportion of casual riders are tourist
 
 Based on this analysis, these are my recommendations:
 
-- Marketing campaigns should target casual riders who use Cyclistic primarily for commuting to work. Casual riders with ride profiles similar to those of members will likely be the most receptive to membership appeals. This means targeting casual riders who use the service on weekdays, particularly during the morning and afternoon “rush hours”, casual riders who use stations Downtown that are popular with members, casual riders with shorter than average ride times, and casual riders who use the service in wintertime or on days with bad weather. 
+- Marketing campaigns should target casual riders who use Cyclistic primarily for commuting to work. Casual riders with ride profiles similar to those of members will likely be the most receptive to membership appeals. This means targeting casual riders who use the service on weekdays, particularly during the morning and afternoon “rush hours”, casual riders who use stations downtown that are popular with members, casual riders with shorter than average ride times, and casual riders who use the service in wintertime or on days with bad weather. 
 
 - Further analysis is needed to profile casual riders. Collecting information on the zip codes of riders, and assigning each rider a unique ID to track riding patterns, would allow us to better segment the market.
 
