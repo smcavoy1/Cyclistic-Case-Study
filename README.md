@@ -596,7 +596,7 @@ Weekend patterns are similar between members and casual riders, with highest usa
 
 <br>
 
-Cyclistic service is highly seasonal, with total ridership highest in the summer months and lowest in the winter. Summer is the only season in which rides by casual riders exceeds those of members. Total ridership drops 87% between summer and fall, and an additional 440% between fall and winter. Rides taken by casual riders drops off 855% between fall and winter, while rides taken by members falls 336%. 
+Cyclistic service is highly seasonal, with total ridership highest in the summer months and lowest in the winter. Summer is the only season in which rides taken by casual riders exceeds those taken by members. Total ridership drops 87% between summer and fall, and an additional 440% between fall and winter. Rides taken by casual riders drops off 855% between fall and winter, while rides taken by members falls 336%. 
 
 Unsurprisingly, winter in Chicago is not a popular time for bicycling for pleasure. While rides taken by casual riders drops to low levels during the winter months, this group of riders is likely using the service for commuting purposes and may be relatively receptive to membership appeals.
 
