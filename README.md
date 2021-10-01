@@ -555,7 +555,7 @@ LIMIT 30
 
 <br>
 
-Members complete just over half (55.3%) of all rides. There is a distinct difference in average ride time by members and casual riders. Average ride time for casual members is 29.64 minutes, more than twice that of members (13.57 minutes).
+Members account for just over half (55.3%) of all rides. There is a distinct difference in average ride time by members and casual riders. Average ride time for casual members is 29.64 minutes, more than twice that of members (13.57 minutes).
 
 <br>
 
