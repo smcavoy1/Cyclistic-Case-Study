@@ -482,7 +482,7 @@ Again, it's similar to the list of popular starting stations. 28 of 30 stations 
 
 <br>
 
-Let's run a SQL query to calculate one-way and round-trip rides for members and casual riders. When a bike is returned to the same station where the ride was initiated, we will consider it a round-trip. When a bike is retured to a different station, then it is a one-way trip.
+Let's run a SQL query to calculate one-way and round-trip rides for members and casual riders. When a bike is returned to the same station where the ride was initiated, we will consider it a round-trip. When a bike is returned to a different station, then it is a one-way trip.
 
 ```
 SELECT member_casual,
